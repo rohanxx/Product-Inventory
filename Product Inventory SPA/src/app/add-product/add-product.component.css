@@ -1,0 +1,18 @@
+.attributes {
+    display: flex;
+}
+
+form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.attributes>.field {
+    margin-right: 1.5rem;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}

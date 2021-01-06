@@ -1,0 +1,35 @@
+<p class="label heading">Product List</p>
+
+<table class="table is-striped" *ngIf="checkLength()">
+    <thead>
+        <th>Name</th>
+        <th>Short Description</th>
+        <th>Description</th>
+        <th>Meta Info</th>
+        <th>Size</th>
+        <th>OS</th>
+        <th>Quality</th>
+        <th>Frame Rate</th>
+        <th>Price</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{ product.name }}</td>
+            <td>{{ product.shortDescription }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.metaInfo }}</td>
+            <td>{{ product.size }}</td>
+            <td>{{ product.os }}</td>
+            <td>{{ product.quality }}</td>
+            <td>{{ product.frameRate }}</td>
+            <td>{{ product.price }}</td>
+            <td><i class="fa fa-trash" (click)="deleteProduct(product._id)"></i></td>
+            <td><i class="fa fa-pencil" (click)="updateProduct(product._id)"></i></td>
+        </tr>
+    </tbody>    
+</table>
+
+<div class="not-found" *ngIf="!checkLength()">
+    <i class="fa fa-exclamation"></i>
+    <p>No Product Found</p>
+</div>

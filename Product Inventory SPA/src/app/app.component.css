@@ -1,0 +1,15 @@
+.navigation {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5rem;
+}
+
+.item {
+    font-size: 1.3rem;
+    text-decoration: none;
+    margin-right: 2rem;
+}
+
+.items-border {
+    border-bottom: 3px solid #0191C8;
+}

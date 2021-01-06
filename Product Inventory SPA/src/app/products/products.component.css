@@ -1,0 +1,33 @@
+.fa {
+    cursor: pointer;
+}
+
+.fa-trash {
+    color: red;
+}
+
+.fa-pencil {
+    color: blue;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.not-found{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.not-found>i{
+    font-size: 2rem;
+}

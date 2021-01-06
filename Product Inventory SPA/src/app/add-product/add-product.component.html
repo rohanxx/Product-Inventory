@@ -1,0 +1,123 @@
+<p class="label heading" *ngIf="!edit">Add Product</p>
+<p class="label heading" *ngIf="edit">Edit Product</p>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+            <input class="input" type="text" formControlName="name" placeholder="Name..">
+            <ng-container *ngIf="productForm.controls.name.touched && productForm.controls.name.errors">
+                <p class="help is-danger" *ngIf="productForm.controls.name.errors.required">Name is required</p>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Short Description</label>
+        <div class="control">
+            <input class="input" type="text" formControlName="shortDescription" placeholder="Short Description..">
+            <ng-container *ngIf="productForm.controls.shortDescription.touched && productForm.controls.shortDescription.errors">
+                <p class="help is-danger" *ngIf="productForm.controls.shortDescription.errors.required">Short Description is required</p>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Description</label>
+        <div class="control">
+            <textarea class="textarea" formControlName="description" placeholder="Description.." ></textarea>
+            <ng-container *ngIf="productForm.controls.description.touched && productForm.controls.description.errors">
+                    <p class="help is-danger" *ngIf="productForm.controls.description.errors.required">Description is required</p>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Meta Info</label>
+        <div class="control">
+            <input class="input" type="text" formControlName="metaInfo" placeholder="Meta Info..">
+            <ng-container *ngIf="productForm.controls.metaInfo.touched && productForm.controls.metaInfo.errors">
+                <p class="help is-danger" *ngIf="productForm.controls.metaInfo.errors.required">Meta Info is required</p>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="attributes">
+        <div class="field">
+            <label class="label">Size</label>
+            <div class="control">
+                <div class="select">
+                    <select formControlName="size">
+                            <option *ngFor="let size of attributes.sizes" [ngValue]="size" >
+                                {{ size }}
+                            </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">OS</label>
+            <div class="control">
+                <div class="select">
+                    <select formControlName="os">
+                            <option *ngFor="let os of attributes.operatingSystems" [value]="os" >
+                                {{ os }}
+                            </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Quality</label>
+            <div class="control">
+                <div class="select">
+                    <select formControlName="quality">
+                            <option *ngFor="let quality of attributes.qualities" [value]="quality" >
+                                {{ quality }}
+                            </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Frame Rate</label>
+            <div class="control">
+                <div class="select">
+                    <select formControlName="frameRate">
+                            <option *ngFor="let frameRate of attributes.frameRates" [ngValue]="frameRate" >
+                                {{ frameRate }}
+                            </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Price</label>
+            <div class="control">
+                <div class="select">
+                    <select formControlName="price">
+                            <option *ngFor="let price of attributes.prices" [ngValue]="price" >
+                                {{ price }}
+                            </option>
+                    </select>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <div class="field btn" *ngIf="!edit">
+        <div class="control">
+            <button class="button is-link" type="submit">Add</button>
+        </div>
+    </div>
+
+    <div class="field btn" *ngIf="edit">
+            <div class="control">
+                <button class="button is-link" type="submit">Edit</button>
+            </div>
+    </div>
+</form>
